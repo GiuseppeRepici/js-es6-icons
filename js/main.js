@@ -114,18 +114,35 @@ const datiIcone = [
 ];
 
 const iconContainer = document.querySelector(".row");
+const selected = document.getElementById("selezione");
 
-datiIcone.forEach(function (element,i) {
-    let contentContainer = document.createElement("div");
-    contentContainer.classList.add("mycard" , "col-3" , "justify-content-center" , "align-items-center");
-    let icon = document.createElement("i");
-    icon.innerHTML +=`<i style="color:${element.color}" style="text-align:center" class="${element.family} ${element.prefix}${element.name}"></i>`;
-    let name = document.createElement("p");
-    name.innerHTML +=`<p>${element.name}</p>`;
-    
-    contentContainer.append(icon);
-    icon.append(name);
-    iconContainer.append(contentContainer);
+selected.addEventListener("change" , function(){
+    iconContainer.innerHTML="";
+    console.log(selected.value);
+    datiIcone.forEach(function (element,i) {
+        let contentContainer = document.createElement("div");
+        contentContainer.classList.add("mycard" , "col-3" , "justify-content-center" , "align-items-center");
+        let icon = document.createElement("i"); 
+        let name = document.createElement("p");
+       
+        if(selected.value===element.type){
+            icon.innerHTML +=`<i style="color:${element.color}" style="text-align:center" class="${element.family} ${element.prefix}${element.name}"></i>`;
+            name.innerHTML +=`<p>${element.name}</p>`;
+            contentContainer.classList.toggle("block");
+            contentContainer.append(icon);
+            icon.append(name);
+            iconContainer.append(contentContainer);
+        } else if(selected.value==="all"){
+            icon.innerHTML +=`<i style="color:${element.color}" style="text-align:center" class="${element.family} ${element.prefix}${element.name}"></i>`;
+            name.innerHTML +=`<p>${element.name}</p>`;
+            contentContainer.classList.toggle("block");
+            contentContainer.append(icon);
+            icon.append(name);
+            iconContainer.append(contentContainer);
+        }
+    })
 })
+
+
 
 

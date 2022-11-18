@@ -1,5 +1,9 @@
 .mycard{
     border: 1px solid black;
     background-color: gray;
-    display: flex;
+    display: none;
+}
+
+.block{
+    display: block;
 }
