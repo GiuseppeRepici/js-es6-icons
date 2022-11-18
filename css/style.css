@@ -1,9 +1,25 @@
-.mycard{
-    border: 1px solid black;
+body {
     background-color: gray;
+  }
+header {
+    background-color: white;
+}
+nav {
+    background-color: lightblue;
+}
+
+.mycard{
     display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    box-shadow: 4px;
+    border-radius: 16px;
+    flex-direction: column;
+    flex-basis: calc((100% / 5) - 30px);
 }
 
 .block{
-    display: block;
+    display: flex;
 }
+
