@@ -115,6 +115,7 @@ const datiIcone = [
 
 const iconContainer = document.querySelector(".row");
 const selected = document.getElementById("selezione");
+let esadecimale= "";
 datiIcone.forEach(function (element,) {
     stampaCard(element);
 })
@@ -137,15 +138,23 @@ selected.addEventListener("change" , function(){
 function stampaCard(element) {
         let contentContainer = document.createElement("div");
         contentContainer.classList.add("mycard" ,"my-3");
+        
         let icon = document.createElement("i"); 
+        icon.style.color=element.color;
+        icon.classList.add(element.family, `${element.prefix}${element.name}`);
+
         let name = document.createElement("p");
-        icon.innerHTML +=`<i style="color:${element.color}"  class="${element.family} ${element.prefix}${element.name}"></i>`;
-        name.innerHTML +=`<p style="text-align:center">${element.name}</p>`;
+        name.style.textAlign="center";
+        name.innerHTML +=`${element.name}`;
+
         contentContainer.classList.toggle("block");
         contentContainer.append(icon);
-        icon.append(name);
+        contentContainer.append(name);
+
         iconContainer.append(contentContainer);
     }
+
+  
 
 
 
